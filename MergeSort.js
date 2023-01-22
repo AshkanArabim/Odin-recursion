@@ -8,10 +8,11 @@ function mergeSort(arr) {
   const len = arr.length;
   const half = Math.floor(len / 2);
   let sorted = [];
-  //base case
   if (len == 1) {
+    //base case
     return arr;
   } else {
+    // recursive case
     // sort left side
     const leftArr = mergeSort(arr.slice(0, half));
 
@@ -22,7 +23,7 @@ function mergeSort(arr) {
     while (leftArr[0] !== undefined && rightArr[0] !== undefined) {
       sorted.push(leftArr[0] < rightArr[0] ? leftArr.shift() : rightArr.shift());
     }
-    sorted = sorted.concat(leftArr[0] !== undefined ? leftArr : rightArr); // this bitch didn't work
+    sorted = sorted.concat(leftArr[0] !== undefined ? leftArr : rightArr);
 
     return sorted;
   }
